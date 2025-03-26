@@ -1,0 +1,26 @@
+{
+  "name": "arena-app-store-sdk",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/arena-app-store-sdk.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/node": "^22.13.13",
+    "rollup": "^2.79.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@walletconnect/ethereum-provider": "^2.19.1"
+  }
+}
