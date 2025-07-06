@@ -1,8 +1,10 @@
 {
   "name": "arena-app-store-sdk",
-  "version": "0.0.1",
+  "version": "0.0.1-snapshot",
   "description": "",
   "main": "dist/arena-app-store-sdk.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/arena-app-store-sdk.js",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w"

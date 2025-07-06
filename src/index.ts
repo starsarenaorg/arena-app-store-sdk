@@ -2,7 +2,7 @@ import Provider, { EthereumProvider } from '@walletconnect/ethereum-provider';
 
 export class ArenaAppStoreSdk {
   private _eventHandlers: Record<string, Function[]> = {};
-  private provider: Provider | null = null;
+  private _provider: Provider | null = null;
   private walletConnectInitialized = false;
   private requestId = 0;
 
@@ -47,7 +47,7 @@ export class ArenaAppStoreSdk {
   async initializeProvider() {
     if (this.walletConnectInitialized) return;
     
-    this.provider = await EthereumProvider.init({
+    this._provider = await EthereumProvider.init({
       projectId: this.config.projectId,
       metadata: this.config.metadata,
       showQrModal: false,
@@ -57,18 +57,18 @@ export class ArenaAppStoreSdk {
     });
 
     if (!this.walletConnectInitialized) {
-      this.provider.on("display_uri", async (uri) => {
+      this._provider.on("display_uri", async (uri) => {
         this._showOverlay(true);
         await this.sendRequest("requestWalletConnection", { uri });
       });
 
-      this.provider.on("connect", (_data) => {
-        const address = this.provider?.accounts[0];
+      this._provider.on("connect", (_data) => {
+        const address = this._provider?.accounts[0];
         this._emit('walletChanged', { address });
         this._showOverlay(false);
       });
 
-      this.provider.on("disconnect", (error) => {
+      this._provider.on("disconnect", (error) => {
         console.log("Wallet disconnected:", error.message);
         this._emit('walletChanged', { address: null });
         this._showOverlay(false);
@@ -80,10 +80,10 @@ export class ArenaAppStoreSdk {
 
   async connectWallet() {
     try {
-      if (!this.provider) {
+      if (!this._provider) {
         throw new Error('Provider not initialized');
       }
-      await this.provider.connect();
+      await this._provider.connect();
     } catch (error) {
       console.error("Connection error:", error);
       this._showOverlay(false);
@@ -117,5 +117,9 @@ export class ArenaAppStoreSdk {
         "*",
       );
     });
+  }
+
+  get provider(): Provider | null {
+    return this._provider;
   }
 }
