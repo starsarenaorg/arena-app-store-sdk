@@ -5,14 +5,6 @@ The Arena App SDK provides developers with tools to integrate with the Arena pla
 - Ability to interact with Arena's API methods
 - Seamless integration with Arena's ecosystem
 
-## Installation
-
-Install via npm:
-
-```bash
-npm install arena-app-store-sdk
-```
-
 ## How It Works in Arena
 
 Your application will be displayed within the Arena platform through the following process:
