@@ -1,9 +1,17 @@
-# Arena App SDK (Alpha)
+# Arena App SDK ![Alpha](https://img.shields.io/badge/status-alpha-orange)
 
 The Arena App SDK provides developers with tools to integrate with the Arena platform, offering:
 - Secure access to user's wallet through Arena's infrastructure
 - Ability to interact with Arena's API methods
 - Seamless integration with Arena's ecosystem
+
+## Installation
+
+Install via npm:
+
+```bash
+npm install arena-app-store-sdk
+```
 
 ## How It Works in Arena
 
@@ -20,23 +28,27 @@ Your application will be displayed within the Arena platform through the followi
    - CORS headers must be properly configured
 
 3. **Getting Your App Listed**
-   - Contact the Arena team with your app details including:
+   - Register your app on the Arene App Store:
      - App name and description
      - Target URL (must be HTTPS)
      - Required permissions
      - App icon (minimum 512x512px)
    - We'll handle the technical integration on our side
 
-4. **User Experience**
+4. Locally testing your app:
+   - Run your app on your local port `3481`
+   - Use the `Run Your App Locally` feature in the Arena App Store to test your app
+
+5. **User Experience**
    - Users will see a permissions dialog when first launching your app
    - Your app will have access to the requested features after user approval
    - Wallet connections are handled through Arena's secure interface
 
 ## Getting Started
 
-Before using the SDK, you'll need to create a project in Reown and obtain your credentials:
+Before using the SDK, you'll need to create a project in [Reown](https://dashboard.reown.com) and obtain your credentials:
 
-1. Go to the Reown developer portal
+1. Go to the [Reown](https://dashboard.reown.com) developer portal
 2. Create a new project
 3. Configure your project settings (name, description, URL, etc.)
 4. Generate your Project ID and API keys
