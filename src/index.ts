@@ -21,7 +21,11 @@ export class ArenaAppStoreSdk {
         await this.initializeProvider();
         await this.connectWallet();
     }
-    initializeArenaAppStoreSdk();
+    initializeArenaAppStoreSdk()
+      .catch(e => {
+        console.log("Error initializing ArenaAppStoreSdk:", e);
+        throw e;
+      });
   }
 
   on(event: string, handler: Function) {
@@ -46,20 +50,32 @@ export class ArenaAppStoreSdk {
 
   async initializeProvider() {
     if (this.walletConnectInitialized) return;
-    
-    this._provider = await EthereumProvider.init({
-      projectId: this.config.projectId,
-      metadata: this.config.metadata,
-      showQrModal: false,
-      chains: [43114],
-      methods: ["eth_sendTransaction", "eth_signTransaction", "eth_sign"],
-      events: ["chainChanged", "accountsChanged"],
-    });
+
+    try {
+      this._provider = await EthereumProvider.init({
+        projectId: this.config.projectId,
+        metadata: this.config.metadata,
+        showQrModal: false,
+        chains: [43114],
+        methods: ["eth_sendTransaction", "eth_signTransaction", "eth_sign"],
+        events: ["chainChanged", "accountsChanged"],
+      });
+    } catch (e) {
+      console.error("Failed to initialize provider:", e);
+      this._showOverlay(false);
+      throw e;
+    }
 
     if (!this.walletConnectInitialized) {
       this._provider.on("display_uri", async (uri) => {
         this._showOverlay(true);
-        await this.sendRequest("requestWalletConnection", { uri });
+        try {
+          await this.sendRequest("requestWalletConnection", {uri});
+        } catch (e) {
+          console.error("Error during 'requestWalletConnection' request for wallet connection:", e);
+          this._showOverlay(false);
+          throw e;
+        }
       });
 
       this._provider.on("connect", (_data) => {
@@ -84,8 +100,8 @@ export class ArenaAppStoreSdk {
         throw new Error('Provider not initialized');
       }
       await this._provider.connect();
-    } catch (error) {
-      console.error("Connection error:", error);
+    } catch (e) {
+      console.error("Error during connection:", e);
       this._showOverlay(false);
     }
   }
