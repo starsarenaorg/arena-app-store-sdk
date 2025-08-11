@@ -1,6 +1,6 @@
 {
   "name": "arena-app-store-sdk",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "dist/arena-app-store-sdk.js",
   "types": "dist/index.d.ts",
