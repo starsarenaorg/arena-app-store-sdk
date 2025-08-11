@@ -173,9 +173,9 @@ export class ArenaAppStoreSdk {
    *
    * @returns A promise that resolves to an ArenaUserProfile or undefined.
    */
-  async fetchUserProfile(): Promise<ArenaUserProfile | undefined> {
-    const response: any = await this.sendRequest('getUserProfile');
-    return response?.result as ArenaUserProfile | undefined;
+  async fetchUserProfile(): Promise<ArenaUserProfile | undefined | null> {
+    const response = await this.sendRequest('getUserProfile');
+    return response as ArenaUserProfile | undefined | null;
   }
 
   /**
