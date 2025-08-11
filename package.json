@@ -6,8 +6,13 @@
   "types": "dist/index.d.ts",
   "module": "dist/arena-app-store-sdk.js",
   "scripts": {
+    "lint": "eslint 'src/**/*.{ts,js}'",
+    "compile": "npx tsc",
     "build": "rollup -c",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "docs": "typedoc src",
+    "prepublishOnly": "npm run lint && npm run compile && npm run build && npm run docs",
+    "release": "npm run lint && npm run compile && npm run build && npm run docs && npm publish"
   },
   "keywords": [],
   "author": "",
@@ -17,10 +22,18 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@types/node": "^22.13.13",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
+    "jiti": "^2.5.1",
     "rollup": "^2.79.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.36.0",
-    "typescript": "^5.8.2"
+    "typedoc": "^0.28.10",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.39.1"
   },
   "dependencies": {
     "@walletconnect/ethereum-provider": "^2.19.1"
