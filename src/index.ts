@@ -2,6 +2,8 @@ import Provider, { EthereumProvider } from '@walletconnect/ethereum-provider';
 import {ArenaUserProfile} from "./types/ArenaUserProfile";
 import {ProviderInfo, ProviderRpcError} from "@walletconnect/ethereum-provider/dist/types/types";
 
+export type { ArenaUserProfile } from './types/ArenaUserProfile';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export class ArenaAppStoreSdk {
