@@ -1,8 +1,8 @@
 # Arena App SDK ![Alpha](https://img.shields.io/badge/status-alpha-orange)
 
 The Arena App SDK provides developers with tools to integrate with the Arena platform, offering:
-- Secure access to user's wallet through Arena's infrastructure
-- Ability to interact with Arena's API methods
+- Secure access to users' wallets through Arena's infrastructure
+- The ability to interact with Arena's API methods
 - Seamless integration with Arena's ecosystem
 
 ## How It Works in Arena
@@ -17,18 +17,24 @@ Your application will be displayed within the Arena platform through the followi
 2. **Hosting Requirements**
    - Your application must be hosted on your own infrastructure
    - Ensure your server supports HTTPS for secure connections
-   - CORS headers must be properly configured
+   - CORS headers must be properly configured. One example configuration is:
+   ```
+    Access-Control-Allow-Origin: https://arena.social
+    Access-Control-Allow-Credentials: true
+    Access-Control-Allow-Methods: GET, POST, OPTIONS
+    Access-Control-Allow-Headers: Content-Type, Authorization
+   ```
 
 3. **Getting Your App Listed**
-   - Register your app on the Arene App Store:
+   - Register your app on the Arena App Store:
      - App name and description
      - Target URL (must be HTTPS)
-     - Required permissions
+     - Select the required features (e.g., wallet access, user profile, etc.) from the dropdown menu
      - App icon (minimum 512x512px)
    - We'll handle the technical integration on our side
 
-4. Locally testing your app:
-   - Run your app on your local port `3481`
+4. Locally Testing Your App:
+   - Run your app on local port `3481`
    - Use the `Run Your App Locally` feature in the Arena App Store to test your app
 
 5. **User Experience**
@@ -47,7 +53,7 @@ Before using the SDK, you'll need to create a project in [Reown](https://dashboa
 5. Add your app's domain to the allowed origins
 6. Save your credentials securely
 
-## How to Connect SDK to Your HTML Project
+## How to Connect the SDK to Your HTML Project
 
 To integrate the Arena App SDK into your HTML project, follow these steps:
 
@@ -121,5 +127,5 @@ const txHash = await arenaAppStoreSdk.provider.request({
 
 ## Alpha Notes
 - WalletConnect integration is in early stages
-- API may change in future releases
+- The API may change in future releases
 
