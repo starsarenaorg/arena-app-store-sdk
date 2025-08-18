@@ -5,6 +5,18 @@ The Arena App SDK provides developers with tools to integrate with the Arena pla
 - The ability to interact with Arena's API methods
 - Seamless integration with Arena's ecosystem
 
+## Table of Contents
+
+- [How It Works in Arena](#how-it-works-in-arena)
+- [Getting Started](#getting-started)
+- [How to Connect the SDK to Your HTML Project](#how-to-connect-the-sdk-to-your-html-project)
+- [API Examples](#api-examples)
+    - [Wallet Information](#wallet-information)
+    - [User Profile](#user-profile)
+    - [Transactions](#transactions)
+- [FAQ](#faq)
+- [Alpha Notes](#alpha-notes)
+
 ## How It Works in Arena
 
 Your application will be displayed within the Arena platform through the following process:
@@ -124,6 +136,29 @@ const txHash = await arenaAppStoreSdk.provider.request({
   }]
 });
 ```
+
+## FAQ
+**Q:** What origins should I allow for CORS?  
+**A:** Allow https://arena.social as the origin. You do not need to specify full paths.
+
+**Q:** Is authentication required on the Arena platform side?  
+**A:** No, authentication is not required on Arena's side. Your app should handle any necessary authentication independently.
+
+**Q:** Can I test my app locally?  
+**A:** Yes, run your app on local port 3481 and use the Run Your App Locally feature in the Arena App Store. 
+And try from a browser with dev mode like Chrome or Firefox. 
+Brave like secure browsers don't allow our https site to open localhost (which is running on http).
+
+**Q:** I am seeing a black screen when I try to display my app. What should I do?
+**A:** 
+1. If it is your production app. Make sure your app is running on https protocol, and you have registered your app with the `https` url.
+1. If it is your local app, make sure you are running it on port `3481` and you have selected the `Run Your App Locally` option in the Arena App Store, and you are using a browser that allows localhost http connections from https context (like Chrome or Firefox).
+
+**Q:** What features can my app request?  
+**A:** Your app can request features such as wallet access and user profile. Select the required features during registration.
+
+**Q:** Is the SDK stable?  
+**A:** The SDK is in alpha. The API may change in future releases.
 
 ## Alpha Notes
 - WalletConnect integration is in early stages
