@@ -110,7 +110,9 @@
 <h2 id="faq" class="tsd-anchor-link">FAQ<a href="#faq" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p><strong>Q:</strong> What origins should I allow for CORS?<br>
 <strong>A:</strong> Allow <a href="https://arena.social">https://arena.social</a> as the origin. You do not need to specify full paths.</p>
 <p><strong>Q:</strong> Is authentication required on the Arena platform side?<br>
-<strong>A:</strong> No, authentication is not required on Arena's side. Your app should handle any necessary authentication independently.</p>
+<strong>A:</strong> No, authentication is not required on Arena's side. Your app should handle any necessary authentication independently if needed.
+However, you can already load the logged-in user profile using the <code>getUserProfile</code> method
+and then use it and not need a separate login flow.</p>
 <p><strong>Q:</strong> Can I test my app locally?<br>
 <strong>A:</strong> Yes, run your app on local port 3481 and use the Run Your App Locally feature in the Arena App Store.
 And try from a browser with dev mode like Chrome or Firefox.

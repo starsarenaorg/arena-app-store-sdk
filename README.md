@@ -142,7 +142,9 @@ const txHash = await arenaAppStoreSdk.provider.request({
 **A:** Allow https://arena.social as the origin. You do not need to specify full paths.
 
 **Q:** Is authentication required on the Arena platform side?  
-**A:** No, authentication is not required on Arena's side. Your app should handle any necessary authentication independently.
+**A:** No, authentication is not required on Arena's side. Your app should handle any necessary authentication independently if needed. 
+However, you can already load the logged-in user profile using the `getUserProfile` method 
+and then use it and not need a separate login flow.
 
 **Q:** Can I test my app locally?  
 **A:** Yes, run your app on local port 3481 and use the Run Your App Locally feature in the Arena App Store. 
