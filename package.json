@@ -1,6 +1,6 @@
 {
   "name": "arena-app-store-sdk",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "",
   "main": "dist/arena-app-store-sdk.js",
   "types": "dist/index.d.ts",
@@ -41,6 +41,8 @@
     "typescript-eslint": "^8.39.1"
   },
   "dependencies": {
-    "@walletconnect/ethereum-provider": "^2.19.1"
+    "@walletconnect/ethereum-provider": "^2.19.1",
+    "viem": "^1.21.4",
+    "wagmi": "^1.4.13"
   }
 }

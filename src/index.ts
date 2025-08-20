@@ -1,8 +1,9 @@
 import Provider, { EthereumProvider } from '@walletconnect/ethereum-provider';
-import {ArenaUserProfile} from "./types/ArenaUserProfile";
+import {ArenaUserProfile} from "./types/arena-user-profile";
 import {ProviderInfo, ProviderRpcError} from "@walletconnect/ethereum-provider/dist/types/types";
 
-export type { ArenaUserProfile } from './types/ArenaUserProfile';
+export type { ArenaUserProfile } from './types/arena-user-profile';
+export { ArenaWagmiConnector } from './wagmi/arena-wagmi-connector';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
