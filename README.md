@@ -162,6 +162,15 @@ Brave like secure browsers don't allow our https site to open localhost (which i
 **Q:** Is the SDK stable?  
 **A:** The SDK is in alpha. The API may change in future releases.
 
+## Wagmi Integration
+
+For wagmi users, separate connector packages are available:
+
+- **wagmi v1**: [`@arena-app-store-sdk/wagmi1-connector`](https://www.npmjs.com/package/@arena-app-store-sdk/wagmi1-connector) - Class-based connector for wagmi v1.4.13+
+- **wagmi v2**: [`@arena-app-store-sdk/wagmi2-connector`](https://www.npmjs.com/package/@arena-app-store-sdk/wagmi2-connector) - Function-based connector for wagmi v2.16.4+
+
+These packages provide seamless integration between Arena's wallet infrastructure and the wagmi ecosystem.
+
 ## Alpha Notes
 - WalletConnect integration is in early stages
 - The API may change in future releases

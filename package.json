@@ -16,8 +16,15 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "docs": "typedoc src",
-    "prepublishOnly": "npm run lint && npm run compile && npm run build && npm run docs",
-    "release": "npm run lint && npm run compile && npm run build && npm run docs && npm publish"
+    "prepublishOnly": "npm run lint && npm run compile && npm run build && npm run docs && npm run lint:wagmi1 && npm run build:wagmi1 && npm run lint:wagmi2 && npm run build:wagmi2",
+    "release": "npm run release:core && npm run release:wagmi1-connector && npm run release:wagmi2-connector",
+    "release:core": "npm run lint && npm run compile && npm run build && npm run docs && npm publish",
+    "release:wagmi1-connector": "cd packages/wagmi1-connector && npm run lint && npm run compile && npm run build && npm publish",
+    "release:wagmi2-connector": "cd packages/wagmi2-connector && npm run lint && npm run compile && npm run build && npm publish",
+    "lint:wagmi1": "cd packages/wagmi1-connector && npm run lint",
+    "build:wagmi1": "cd packages/wagmi1-connector && npm run compile && npm run build",
+    "lint:wagmi2": "cd packages/wagmi2-connector && npm run lint", 
+    "build:wagmi2": "cd packages/wagmi2-connector && npm run compile && npm run build"
   },
   "keywords": [],
   "author": "",

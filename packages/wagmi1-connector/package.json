@@ -1,0 +1,48 @@
+{
+  "name": "@arena-app-store-sdk/wagmi1-connector",
+  "version": "0.1.0",
+  "description": "Arena Wallet connector for wagmi v1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint 'src/**/*.{ts,js}'",
+    "compile": "npx tsc",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "prepublishOnly": "npm run lint && npm run compile && npm run build"
+  },
+  "keywords": [
+    "wagmi",
+    "ethereum",
+    "arena",
+    "wallet",
+    "connector",
+    "web3",
+    "wagmi-v1"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "wagmi": "^1.4.13",
+    "viem": "^1.21.4"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/node": "^22.13.13",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "rollup": "^2.79.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.8.2"
+  }
+}
