@@ -1,11 +1,8 @@
 import { Connector } from 'wagmi';
 import type {
   Address,
-  Account,
   Chain,
   EIP1193Provider,
-  Transport,
-  WalletClient,
 } from 'viem';
 import { createWalletClient, custom } from 'viem';
 

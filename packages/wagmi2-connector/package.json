@@ -1,6 +1,6 @@
 {
   "name": "@arena-app-store-sdk/wagmi2-connector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Arena Wallet connector for wagmi v2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

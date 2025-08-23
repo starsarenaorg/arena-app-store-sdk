@@ -1,7 +1,9 @@
 import { createConnector } from '@wagmi/core';
-import type { Address, Chain } from 'viem';
+import type { Address } from 'viem';
 import { getAddress } from 'viem';
-import type { ArenaProvider, ArenaWalletParameters } from './types';
+import type { ArenaWalletParameters } from './types';
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 function parseChainId(input: number | string): number {
   if (typeof input === 'number') return input;
@@ -28,7 +30,7 @@ export const arenaWagmi2ConnectorFactory = (parameters: ArenaWalletParameters) =
     async connect({ chainId } = {}) {
       const provider = parameters.provider;
       
-      let accounts = provider.accounts || [];
+      const accounts = provider.accounts || [];
       if (accounts.length === 0) {
         throw new Error('No accounts connected');
       }
