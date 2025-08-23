@@ -9,7 +9,7 @@ function parseChainId(input: number | string): number {
   return s.startsWith('0x') ? parseInt(s, 16) : Number(s);
 }
 
-export const arenaWallet = (parameters: ArenaWalletParameters) =>
+export const arenaWagmi2ConnectorFactory = (parameters: ArenaWalletParameters) =>
   createConnector((config) => ({
     id: 'arena-wallet',
     name: 'Arena Wallet',
