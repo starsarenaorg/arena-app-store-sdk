@@ -1,0 +1,51 @@
+{
+  "name": "@the-arena/arena-app-store-sdk",
+  "version": "0.2.1",
+  "description": "Arena App Store SDK - Connect to Arena's wallet infrastructure",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "docs"
+  ],
+  "scripts": {
+    "lint": "eslint 'src/**/*.{ts,js}'",
+    "compile": "npx tsc",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "docs": "typedoc src",
+    "prepublishOnly": "npm run lint && npm run compile && npm run build && npm run docs"
+  },
+  "keywords": [
+    "arena",
+    "app-store",
+    "sdk",
+    "walletconnect",
+    "ethereum",
+    "web3"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/node": "^22.13.13",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "rollup": "^2.79.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typedoc": "^0.28.10",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@walletconnect/ethereum-provider": "^2.19.1",
+    "viem": "^1.21.4",
+    "wagmi": "^1.4.13"
+  }
+}

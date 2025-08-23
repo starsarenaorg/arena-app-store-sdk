@@ -1,11 +1,8 @@
 import { Connector } from 'wagmi';
 import type {
   Address,
-  Account,
   Chain,
   EIP1193Provider,
-  Transport,
-  WalletClient,
 } from 'viem';
 import { createWalletClient, custom } from 'viem';
 
@@ -28,7 +25,7 @@ function parseChainId(input: number | string): number {
   return s.startsWith('0x') ? parseInt(s, 16) : Number(s);
 }
 
-export class ArenaWagmiConnector extends Connector<
+export class ArenaWagmi1Connector extends Connector<
   WalletConnectProvider,
   Record<string, never>
 > {
@@ -44,7 +41,7 @@ export class ArenaWagmiConnector extends Connector<
   private readonly _emit: (event: 'change' | 'disconnect', payload?: any) => void;
 
   constructor(args: { provider: WalletConnectProvider; chains: Chain[] }) {
-    super({ options: {}, chains: args.chains });
+    super({ options: {}, chains: args.chains as any });
     this.provider = args.provider;
     this._chains = args.chains;
 
@@ -101,7 +98,7 @@ export class ArenaWagmiConnector extends Connector<
 
   async getWalletClient(
     config?: GetWalletClientConfig
-  ): Promise<WalletClient<Transport, Chain, Account>> {
+  ): Promise<any> {
     const addr = this.provider.accounts?.[0] as Address | undefined;
     if (!addr) throw new Error('No account connected');
 
@@ -113,7 +110,7 @@ export class ArenaWagmiConnector extends Connector<
       account: addr,
       chain,
       transport: custom(this.provider),
-    }) as WalletClient<Transport, Chain, Account>;
+    });
   }
 
   // --- Lifecycle hooks -------------------------------------------------------
@@ -134,3 +131,6 @@ export class ArenaWagmiConnector extends Connector<
     this._emit('disconnect');
   };
 }
+
+// Export the provider type
+export type { WalletConnectProvider as ArenaWalletProvider };

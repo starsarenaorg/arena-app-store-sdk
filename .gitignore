@@ -1,6 +1,8 @@
 # Ignore build artifacts
 /dist
 /node_modules
+/packages/*/dist
+/packages/*/node_modules
 
 # Ignore IDE specific files
 .vscode
@@ -12,3 +14,6 @@
 
 # Ignore debug logs
 *.log
+
+# Ignore TypeScript build info
+*.tsbuildinfo
