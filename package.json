@@ -1,6 +1,6 @@
 {
   "name": "arena-app-store-sdk",
-  "version": "0.1.11",
+  "version": "0.2.1",
   "description": "",
   "main": "dist/arena-app-store-sdk.js",
   "types": "dist/index.d.ts",
@@ -17,14 +17,15 @@
     "watch": "rollup -c -w",
     "docs": "typedoc src",
     "prepublishOnly": "npm run lint && npm run compile && npm run build && npm run docs && npm run lint:wagmi1 && npm run build:wagmi1 && npm run lint:wagmi2 && npm run build:wagmi2",
-    "release": "npm run release:core && npm run release:wagmi1-connector && npm run release:wagmi2-connector",
-    "release:core": "npm run lint && npm run compile && npm run build && npm run docs && npm publish",
-    "release:wagmi1-connector": "cd packages/wagmi1-connector && npm run lint && npm run compile && npm run build && npm publish",
-    "release:wagmi2-connector": "cd packages/wagmi2-connector && npm run lint && npm run compile && npm run build && npm publish",
-    "lint:wagmi1": "cd packages/wagmi1-connector && npm run lint",
-    "build:wagmi1": "cd packages/wagmi1-connector && npm run compile && npm run build",
-    "lint:wagmi2": "cd packages/wagmi2-connector && npm run lint", 
-    "build:wagmi2": "cd packages/wagmi2-connector && npm run compile && npm run build"
+    "release": "npm run release:core && npm run release:main && npm run release:wagmi1-connector && npm run release:wagmi2-connector",
+    "release:core": "pushd packages/core && npm run lint && npm run compile && npm run build && npm publish && popd",
+    "release:main": "npm run lint && npm run compile && npm run build && npm run docs && npm publish",
+    "release:wagmi1-connector": "pushd packages/wagmi1-connector && npm run lint && npm run compile && npm run build && npm publish && popd",
+    "release:wagmi2-connector": "pushd packages/wagmi2-connector && npm run lint && npm run compile && npm run build && npm publish && popd",
+    "lint:wagmi1": "pushd packages/wagmi1-connector && npm run lint && popd",
+    "build:wagmi1": "pushd packages/wagmi1-connector && npm run compile && npm run build && popd",
+    "lint:wagmi2": "pushd packages/wagmi2-connector && npm run lint && popd", 
+    "build:wagmi2": "pushd packages/wagmi2-connector && npm run compile && npm run build && popd"
   },
   "keywords": [],
   "author": "",
@@ -48,8 +49,6 @@
     "typescript-eslint": "^8.39.1"
   },
   "dependencies": {
-    "@walletconnect/ethereum-provider": "^2.19.1",
-    "viem": "^1.21.4",
-    "wagmi": "^1.4.13"
+    "@arena-app-store-sdk/core": "file:./packages/core"
   }
 }
