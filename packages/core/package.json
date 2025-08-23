@@ -1,5 +1,5 @@
 {
-  "name": "arena-app-store-sdk",
+  "name": "@the-arena/arena-app-store-sdk",
   "version": "0.2.1",
   "description": "Arena App Store SDK - Connect to Arena's wallet infrastructure",
   "main": "dist/index.js",

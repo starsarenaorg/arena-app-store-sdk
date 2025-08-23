@@ -6,9 +6,9 @@
   "scripts": {
     "prepublishOnly": "npm run lint:main && npm run build:main && npm run lint:wagmi1 && npm run build:wagmi1 && npm run lint:wagmi2 && npm run build:wagmi2",
     "release": "npm run release:main && npm run release:wagmi1-connector && npm run release:wagmi2-connector",
-    "release:main": "pushd packages/core && npm run lint && npm run compile && npm run build && npm run docs && npm publish && popd",
-    "release:wagmi1-connector": "pushd packages/wagmi1-connector && npm run lint && npm run compile && npm run build && npm publish && popd",
-    "release:wagmi2-connector": "pushd packages/wagmi2-connector && npm run lint && npm run compile && npm run build && npm publish && popd",
+    "release:main": "pushd packages/core && npm run lint && npm run compile && npm run build && npm run docs && npm publish --access public && popd",
+    "release:wagmi1-connector": "pushd packages/wagmi1-connector && npm run lint && npm run compile && npm run build && npm publish --access public && popd",
+    "release:wagmi2-connector": "pushd packages/wagmi2-connector && npm run lint && npm run compile && npm run build && npm publish --access public && popd",
     "lint:main": "pushd packages/core && npm run lint && popd",
     "build:main": "pushd packages/core && npm run compile && npm run build && popd",
     "lint:wagmi1": "pushd packages/wagmi1-connector && npm run lint && popd",

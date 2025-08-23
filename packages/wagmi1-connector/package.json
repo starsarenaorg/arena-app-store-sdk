@@ -1,5 +1,5 @@
 {
-  "name": "@arena-app-store-sdk/wagmi1-connector",
+  "name": "@the-arena/wagmi1-connector",
   "version": "0.1.1",
   "description": "Arena Wallet connector for wagmi v1",
   "main": "dist/index.js",
