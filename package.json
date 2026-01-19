@@ -1,6 +1,6 @@
 {
   "name": "arena-app-store-sdk-monorepo",
-  "version": "0.2.1",
+  "version": "0.2.4",
   "description": "Arena App Store SDK monorepo",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "build:main": "pushd packages/core && npm run compile && npm run build && popd",
     "lint:wagmi1": "pushd packages/wagmi1-connector && npm run lint && popd",
     "build:wagmi1": "pushd packages/wagmi1-connector && npm run compile && npm run build && popd",
-    "lint:wagmi2": "pushd packages/wagmi2-connector && npm run lint && popd", 
+    "lint:wagmi2": "pushd packages/wagmi2-connector && npm run lint && popd",
     "build:wagmi2": "pushd packages/wagmi2-connector && npm run compile && npm run build && popd"
   },
   "keywords": [
