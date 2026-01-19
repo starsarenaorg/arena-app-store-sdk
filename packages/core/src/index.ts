@@ -76,7 +76,7 @@ export class ArenaAppStoreSdk {
         metadata: this.config.metadata,
         showQrModal: false,
         chains: [43114],
-        methods: ["eth_sendTransaction", "eth_signTransaction", "eth_sign"],
+        methods: ["eth_sendTransaction", "eth_signTransaction", "eth_sign", "personal_sign", "eth_signTypedData_v4"],
         events: ["chainChanged", "accountsChanged"],
       });
     } catch (e) {
